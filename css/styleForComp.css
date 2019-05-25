@@ -1,0 +1,63 @@
+@media (min-width: 600px) {
+
+    body{
+        background: url(../fon.jpg);
+        background-size: 100% 100%;
+        margin: auto;
+    }
+
+    @keyframes move {
+        0%{
+            right: -30%;
+        }
+        100%{
+            top: -5px;
+            left: auto;
+            right: 0;
+        }
+    }
+    header{
+        flex-direction: row;
+        padding:30px 0;
+        width: 98.5%;
+    }
+
+    #content,main,#fon{
+        flex-direction: row;
+    }
+
+    .toDo{
+        position: relative;
+    }
+    section,#fon{
+        display: flex;
+    }
+    main{
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-top: 2%;
+        align-items: flex-start;
+        align-content: flex-start;
+    }
+    section{
+        width: 48%;
+        flex-direction: column;
+        margin-bottom: 2.5%;
+    }
+
+    .addNewArticleButton{
+        left: auto;
+        right: 10px;
+        bottom: 10px;
+    }
+
+    #addingArticle{
+        height: 100vh;
+        width: 30%;
+        top: -5px;
+        left: auto;
+        right: 0;
+        bottom: 0;
+    }
+}

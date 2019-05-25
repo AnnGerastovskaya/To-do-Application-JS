@@ -1,0 +1,248 @@
+@keyframes move {
+    0%{
+        right: -100%;
+    }
+    100%{
+        top: 0px;
+        left: 0px;
+        right: 0;
+    }
+}
+
+*{
+    box-sizing: border-box;
+    word-break: keep-all;
+    font-family: "Arial";
+}
+
+body,header,main,section,article,#content,#fon,#addingArticle{ display: flex }
+
+body,#content,section,main,#addingArticle{ flex-direction: column }
+
+body,section,#addingArticle, article,.tasks{ position: relative }
+
+.addToDo,.addList{ position: absolute }
+
+body{
+    height: auto;
+    min-height: 100vh;
+    min-width: 130px;
+    justify-content: center;
+    align-content: start;
+    background: url(../fon2.png);
+    background-size: 100% 100%;
+    max-width: 1224px;
+
+}
+
+.updateTitleSelector{
+   display: none;
+}
+/*Header*/
+header{
+    height: 60px;
+    width: 97%;
+    margin-left: 5px;
+    flex-direction: row;
+    padding:15px 0;
+    margin-bottom: 15px;
+}
+
+#line{
+    height: 5px;
+    width: 100%;
+    margin-top: 25px;
+    background-color: black;
+}
+header> b{
+    font-size: 40px;
+}
+
+/*Main*/
+main{ }
+
+section{
+    background-color: white;
+    opacity: 0.9;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    overflow: auto;
+    height: 350px;
+}
+
+article{
+    flex-direction: row;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.titleList:focus,.taskName:focus{
+    outline: none;
+}
+
+#newTitle:focus,#newTask:focus{
+    border-bottom: #888888 solid 1px;
+}
+article:before{
+    position: absolute;
+    bottom: 0;
+    content: "";
+    height: 1px;
+    width: 0;
+    background-color: grey;
+    transition: width 0.2s ease-in-out; z-index:1;
+}
+.tasks:before {
+    position: absolute;
+    z-index:1;
+    display: flex;
+    bottom: 0;
+    content: "";
+    height: 30px;
+    width: 0;
+    background-color: whitesmoke;
+    transition: width 0.2s ease-in-out;
+    opacity: 0.4;
+}
+.deleteArticle{ z-index: 2 }
+.checkboxDiv,.manipulationTasls{ z-index:1 }
+
+article:hover:before{
+    width: 94%;
+}
+.tasks:hover:before{
+    width: 100%;
+}
+
+.deleteArticle{
+    color: gray;
+    margin: 5px;
+}
+
+.fa-check-square+.taskName{
+    text-decoration: line-through;
+}
+
+.fa-check-square,.unselected{
+    margin: 3px 5px 0 10px;
+}
+.unselected{
+   width: 14px;
+    height: 14px;
+    background-color: white;
+    border-radius: 3px;
+    border: gray solid 2px;
+}
+
+.taskName{
+    font-size: 15px;
+}
+
+.checkboxDiv{
+    display: flex;
+
+}
+.addToDo{
+    right: 5px;
+    left: 10px;
+    bottom: 5px;
+    width: 96%;
+    font-size: 16px;
+}
+#content{
+    height: auto;
+    min-height: 100vh;
+}
+.window-close,.addNewArticleButton{
+    cursor: pointer;
+}
+.addNewArticleButton{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    padding-left: 12px;
+    font-size: 45px;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    color: white;
+    background-color: black;
+    z-index: 4;
+}
+
+.toDo{
+    margin-bottom: 20px;
+    margin-right: 3px;
+    overflow: inherit;
+}
+
+#divWindowAdd{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+}
+#fon{
+    top: -5px;
+    background-color: black;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+}
+
+#addingArticle{
+    background-color: white;
+    padding:  0  5px  0 5px;
+    height: 101vh;
+    width: 100%;
+    margin: auto;
+    position: fixed;
+    top: -5px;
+    left: auto;
+    right: 0;
+}
+
+input{
+    border: none;
+    background-color: inherit;
+    margin-bottom: 5px;
+    color: gray;
+}
+input[placeholder="Add title"]{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.addList{
+    background-color: black;
+    color: white;
+    margin: 0 -5px;
+    border-color: black;
+    width: 100%;
+    bottom: 0;
+    padding: 7px;
+}
+
+.window-close{
+    position: absolute;
+    right: 5px;
+}
+div>div{
+display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.titleList{
+    font-size: 23px;
+    color: black;
+    font-weight: bold;
+    border: 0  ;
+    margin: 8px 5px;
+    width: 93%;
+    text-overflow: ellipsis;
+}
